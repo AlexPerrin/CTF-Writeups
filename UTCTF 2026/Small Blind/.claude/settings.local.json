@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"\nimport socket, time\n\ndef test_fold\\(raise_amt\\):\n    s = socket.socket\\(socket.AF_INET, socket.SOCK_STREAM\\)\n    s.connect\\(\\('challenge.utctf.live', 7255\\)\\)\n    time.sleep\\(0.3\\)\n    s.settimeout\\(2\\)\n    try:\n        s.recv\\(4096\\)\n    except:\n        pass\n    \n    for msg in ['test', 'y', f'raise {raise_amt}']:\n        s.sendall\\(\\(msg + '\\\\n'\\).encode\\(\\)\\)\n        time.sleep\\(0.8\\)\n        buf = b''\n        s.settimeout\\(2.0\\)\n        while True:\n            try:\n                c = s.recv\\(4096\\)\n                if not c: break\n                buf += c\n            except:\n                break\n    \n    r = buf.decode\\('utf-8', errors='replace'\\)\n    s.close\\(\\)\n    if 'folds' in r: return 'FOLD'\n    elif 'calls' in r: return 'CALL'\n    elif 'raises' in r: return 'RAISE'\n    else: return 'OTHER'\n\nfor amt in [200, 300, 400]:\n    res = []\n    for _ in range\\(3\\):\n        r = test_fold\\(amt\\)\n        res.append\\(r\\)\n        time.sleep\\(0.3\\)\n    print\\(f'raise {amt}: {res}'\\)\n\")"
+    ]
+  }
+}
