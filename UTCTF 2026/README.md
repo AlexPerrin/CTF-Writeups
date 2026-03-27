@@ -6,7 +6,7 @@ Individual [owlfreak](https://ctftime.org/team/405946)
 
 ## CTFtime
 
-[Scoreboard](https://ctftime.org/event/2756)
+[Scoreboard](https://ctftime.org/event/3133)
 
 |Place|Team|
 |-|-|
